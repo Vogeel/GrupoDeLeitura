@@ -12,7 +12,7 @@ namespace GrupoDeLeitura.ConsoleApp
         public string corCaixa;
         public string entiquetaCaixa;
 
-        public int caixaDaRevista;
+        
 
         public void RegistrarCaixa()
         {
@@ -29,28 +29,14 @@ namespace GrupoDeLeitura.ConsoleApp
             Console.WriteLine("Qual a entiqueta da caixa?");
             entiquetaCaixa = Convert.ToString(Console.ReadLine());
         }
-        public void Mostrar(Caixa[] caixa)
-        {
-            for (int j = 0; j < caixa.Length; j++)
-            {
+        public void Mostrar()
+        {                      
+                    Console.WriteLine("Numero da caixa: " + numeroCaixa);
 
-                if (caixa[j] != null)
-                {
-                    Console.WriteLine("Numero da caixa: " + caixa[j].numeroCaixa);
+                    Console.WriteLine("Cor da caixa: " + corCaixa);
 
-
-
-                    Console.WriteLine("Cor da caixa: " + caixa[j].corCaixa);
-
-
-
-                    Console.WriteLine("Entiqueta da caixa: " + caixa[j].entiquetaCaixa);
-
-
-
-
-                }
-            }
+                    Console.WriteLine("Entiqueta da caixa: " + entiquetaCaixa);
+           
             Console.ReadLine();
         }
     }

@@ -60,14 +60,14 @@ namespace GrupoDeLeitura.ConsoleApp
             }while (true);
         }
 
-        private static void Mostrar(dynamic[] pessoa)
+        private static void Mostrar(dynamic[] variavel)
         {
-            for (int i = 0; i < pessoa.Length; i++)
+            for (int i = 0; i < variavel.Length; i++)
             {
-                if (pessoa[i] == null)
+                if (variavel[i] == null)
                     continue;
                 Console.WriteLine($"ID : {i}");
-                pessoa[i].Mostrar();
+                variavel[i].Mostrar();
             }
         }
     }

@@ -13,8 +13,7 @@ namespace GrupoDeLeitura.ConsoleApp
         public string tipoDeColecao;
         int adicinarRevistaCaixa;
         public int numeroDeEdicao;
-        public int numeroCaixa;
-        public int ano;
+       
         
         public Caixa caixaDaRevista;
 
@@ -57,28 +56,14 @@ namespace GrupoDeLeitura.ConsoleApp
         }
 
 
-        public void Mostrar(Revista[] revista)
-        {
-            for (int j = 0; j < revista.Length; j++)
-            {
+        public void Mostrar()
+        {        
+                    Console.WriteLine("Coleção da revista: " + tipoDeColecao);
 
-                if (revista[j] != null)
-                {
-                    Console.WriteLine("Coleção da revista: " + revista[j].tipoDeColecao);
+                    Console.WriteLine("Numero de edição: " + numeroDeEdicao);
 
+                    Console.WriteLine("Ano da revista: " + anoDaRevista);
 
-
-                    Console.WriteLine("Numero de edição: " + revista[j].numeroDeEdicao);
-
-
-
-                    Console.WriteLine("Ano da revista: " + revista[j].anoDaRevista);
-
-
-
-
-                }
-            }
             Console.ReadLine();
         }
 

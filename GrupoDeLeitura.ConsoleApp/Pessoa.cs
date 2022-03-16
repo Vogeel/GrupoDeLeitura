@@ -35,15 +35,19 @@ namespace GrupoDeLeitura.ConsoleApp
             Console.ReadLine();
         }
         public void Mostrar()
-        {
-            
-                    Console.WriteLine("Amigo: " + nome);
+        {            
+         Console.WriteLine("Amigo: " + nome);
 
-                    Console.WriteLine("Nome do responsavel" + nomeDoResponsavel);
+         Console.WriteLine("Nome do responsavel" + nomeDoResponsavel);
 
-                    Console.WriteLine("Endereço: " + endereco);
+         Console.WriteLine("Endereço: " + endereco);
 
-                    Console.WriteLine("Numero do responsavel: " + numero);
+         Console.WriteLine("Numero do responsavel: " + numero);
+
+            if (jaTemUmaRevista == true)
+                Console.WriteLine("Esse amigo está com uma revista!");
+            else
+                Console.WriteLine("Esse amigo não está com nenhuma revista");
                       
             Console.ReadLine();
         }

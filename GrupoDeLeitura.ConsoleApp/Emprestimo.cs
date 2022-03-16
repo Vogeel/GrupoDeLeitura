@@ -73,27 +73,20 @@ namespace GrupoDeLeitura.ConsoleApp
         }
 
 
-        public void Mostrar(Emprestimo[] emprestimo)
-        {
-            for (int j = 0; j < emprestimo.Length; j++)
-            {
+        public void Mostrar()
+        {       
+                    Console.WriteLine("Quem pegou a revista: " + pegouARevista.nome);
 
-                if (emprestimo[j] != null)
-                {
-                    Console.WriteLine("Quem pegou a revista: " + emprestimo[j].pegouARevista.nome);
+                    Console.WriteLine("Nome do responsavel" + pegouARevista.nomeDoResponsavel);
 
-
-
-                    Console.WriteLine("Nome do responsavel" + emprestimo[j].pegouARevista.nomeDoResponsavel);
-
-
-
-                    Console.WriteLine("Dia que pegou a revista" + emprestimo[j].dataDeEmprestimo);
-
-
-                }
-            }
+                    Console.WriteLine("Dia que pegou a revista" + dataDeEmprestimo);
+            if (emprestimoAberto == true)
+                Console.WriteLine("O emprestimo está aberto!");
+            else
+                Console.WriteLine("O emprestimo não está aberto!!");
             Console.ReadLine();
+
+            
         }
     }
 }
