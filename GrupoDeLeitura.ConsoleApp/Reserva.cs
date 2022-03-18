@@ -56,10 +56,10 @@ namespace GrupoDeLeitura.ConsoleApp
                 errou = true;
             } while (dias.Days > 2);
 
-           
 
-          
 
+
+            DateTime diasReservado = diaDaReservaDaRevista.AddDays(2);
             for (int i = 0; i < revista.Length; i++)
             {
                 if (revista[i] == null)
@@ -72,7 +72,7 @@ namespace GrupoDeLeitura.ConsoleApp
             int posicaoRevistaReservada = Convert.ToInt32(Console.ReadLine());
             revista[posicaoRevistaReservada].revistaReservada = true;
 
-            menssagem.Sucesso($"Revista reservada com Sucesso");
+            menssagem.Sucesso($"Revista reservada até o dia: {diasReservado} com Sucesso");
 
             Console.WriteLine("Deseja fazer um emprestimo? (sim/nao)");
             string resposta = Console.ReadLine();
