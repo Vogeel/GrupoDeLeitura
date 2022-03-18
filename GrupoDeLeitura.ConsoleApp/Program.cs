@@ -12,49 +12,65 @@ namespace GrupoDeLeitura.ConsoleApp
             Pessoa[] pessoa = new Pessoa[100];
             Emprestimo[] emprestimo = new Emprestimo[100];
             AcharObjeto acharObjeto = new AcharObjeto();
+            Reserva[] reserva = new Reserva[100];
+            CategoriasDeRevista[] categoria = new CategoriasDeRevista[100];
             do
             {
                 switch(menu.MenuPrincipal())
                 {
-                    case 1:
+                    case "1":
                         int posicao = acharObjeto.AcharPosicaoParaOObjeto(revista);
                         revista[posicao] = new();
-                        revista[posicao].RegistrarRevista(caixa);                        
+                        revista[posicao].RegistrarRevista(caixa, categoria);                        
                         break;
 
-                    case 2:
+                    case "2":
                         posicao = acharObjeto.AcharPosicaoParaOObjeto(caixa);
                         caixa[posicao] = new();
                         caixa[posicao].RegistrarCaixa();
                         break;
-                    case 3:
+
+                    case "3":
                         posicao = acharObjeto.AcharPosicaoParaOObjeto(pessoa);
                         pessoa[posicao] = new();
                         pessoa[posicao].RegistrarPessoa();
                         break;
-                   case 4:
+
+                   case "4":
                         posicao = acharObjeto.AcharPosicaoParaOObjeto(emprestimo);
                         emprestimo[posicao] = new();
-                        emprestimo[posicao].RegistrarEmprestimo(revista, pessoa);
+                        emprestimo[posicao].RegistrarEmprestimo(revista, pessoa, categoria);
                         break;
-                    case 5:
 
+                    case "5":
+                        posicao = acharObjeto.AcharPosicaoParaOObjeto(reserva);
+                        reserva[posicao] = new();
+                        reserva[posicao].ReservarRevista(revista, pessoa);
+                        break;
+
+                    case "6":
                         Mostrar(revista);
                         break;
-                    case 6:
-                        Mostrar(pessoa);
-                        break;
 
-                    case 7:
+                    case "7":
                         Mostrar(caixa);
                         break;
 
-                    case 8:
+                    case "8":
+                        Mostrar(pessoa);
+                        break;
+
+                    case "9":
                         Mostrar(emprestimo);
                         break;
 
-                    case 9:
+                    case "10":
+                        Mostrar(reserva);
+                        break;
+                  
+                    case "s":
                         return;
+                        
 
                 }
             }while (true);

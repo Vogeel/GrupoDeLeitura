@@ -12,8 +12,9 @@ namespace GrupoDeLeitura.ConsoleApp
         public string nomeDoResponsavel;
         public int numero;
         public string endereco;
-        public bool jaTemUmaRevista;
-
+        public bool jaTemUmaRevista = false;
+        public bool EstaComMulta = false;
+        public Menssagem menssagem = new ();
         public void RegistrarPessoa()
         {
 
@@ -29,10 +30,7 @@ namespace GrupoDeLeitura.ConsoleApp
             Console.WriteLine("Qual endereço?");
             endereco = Convert.ToString(Console.ReadLine());
 
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("pressoa registrada com sucesso :-)");
-            Console.ResetColor();
-            Console.ReadLine();
+            menssagem.Sucesso("Pessoa registrada com sucesso :-)");
         }
         public void Mostrar()
         {            
@@ -48,6 +46,28 @@ namespace GrupoDeLeitura.ConsoleApp
                 Console.WriteLine("Esse amigo está com uma revista!");
             else
                 Console.WriteLine("Esse amigo não está com nenhuma revista");
+
+            if (EstaComMulta == true)
+            {
+
+                menssagem.Erro("Este amigo está devendo!! coloteiro.\n");
+                Console.WriteLine("Ele deseja quitar as multas?(sim/nao");
+                string quitarmulta = Console.ReadLine();
+
+                if (quitarmulta == "sim")
+                {
+                    EstaComMulta = false;
+                    menssagem.Sucesso("Multa quitada :-)");
+                    Console.ReadLine();
+                }
+                else
+                    menssagem.Erro("Cuidado com suas amizades!");
+                                   
+            }
+            else
+                Console.WriteLine("Esse amigo não está devendo, Score bom!");
+
+        
                       
             Console.ReadLine();
         }

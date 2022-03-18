@@ -12,12 +12,14 @@ namespace GrupoDeLeitura.ConsoleApp
         public int anoDaRevista;
         public string tipoDeColecao;
         int adicinarRevistaCaixa;
+        int adicionarRevistaCategoria;
         public int numeroDeEdicao;
-       
-        
+        public bool revistaReservada = false;
+        public Menssagem menssagem = new ();
         public Caixa caixaDaRevista;
+        public CategoriasDeRevista categoriaDaRevista;
 
-        public void RegistrarRevista(Caixa[] caixa)
+        public void RegistrarRevista(Caixa[] caixa, CategoriasDeRevista[] categoria)
         {
 
             Console.WriteLine("Qual o Ano da revista?");
@@ -42,16 +44,23 @@ namespace GrupoDeLeitura.ConsoleApp
 
                 Console.WriteLine($"Caixa: {caixa[i].corCaixa}, {caixa[i].entiquetaCaixa}, {caixa[i].numeroCaixa}. Caixa numero: {i}");
             }
-
-
-
             adicinarRevistaCaixa = Convert.ToInt32(Console.ReadLine());
             caixaDaRevista = caixa[adicinarRevistaCaixa];
 
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Revista registrada com sucesso :-)");
-            Console.ResetColor();
-            Console.ReadLine();
+            Console.WriteLine("Qual categoria esta revista se encaixa?");
+
+            for (int i = 0; i < categoria.Length; i++)
+            {
+                if (categoria[i] == null)
+                    continue;
+
+                Console.WriteLine($"{categoriaDaRevista.nomeCategoria} \nPode ser emprestada ate: {categoriaDaRevista.diasQuePodeEmprestar}\n  Id : {i} " );
+            }
+            Console.WriteLine("Qual Categoria quer? escolha pelo ID");
+            adicionarRevistaCategoria = Convert.ToInt32(Console.ReadLine());
+            categoriaDaRevista = categoria[adicionarRevistaCategoria];
+
+            menssagem.Sucesso("Revista registrada com sucesso :-)");
 
         }
 
@@ -63,6 +72,10 @@ namespace GrupoDeLeitura.ConsoleApp
                     Console.WriteLine("Numero de edição: " + numeroDeEdicao);
 
                     Console.WriteLine("Ano da revista: " + anoDaRevista);
+
+            Console.WriteLine("Categoria da revista: " + categoriaDaRevista.nomeCategoria);
+
+            Console.WriteLine("Devolução da categoria: "+ categoriaDaRevista.diasQuePodeEmprestar);
 
             Console.ReadLine();
         }

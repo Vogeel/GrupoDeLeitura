@@ -11,7 +11,7 @@ namespace GrupoDeLeitura.ConsoleApp
         public int numeroCaixa;
         public string corCaixa;
         public string entiquetaCaixa;
-
+        public Menssagem menssagem = new ();
         
 
         public void RegistrarCaixa()
@@ -28,6 +28,8 @@ namespace GrupoDeLeitura.ConsoleApp
 
             Console.WriteLine("Qual a entiqueta da caixa?");
             entiquetaCaixa = Convert.ToString(Console.ReadLine());
+
+            menssagem.Sucesso("Caixa Registrada com sucesso :-)");
         }
         public void Mostrar()
         {                      
